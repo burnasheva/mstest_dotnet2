@@ -19,6 +19,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{09574C6E-F46A-480D-B83D-20FD20357F0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{09574C6E-F46A-480D-B83D-20FD20357F0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
