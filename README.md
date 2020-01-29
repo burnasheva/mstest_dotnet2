@@ -1,2 +1,1 @@
-# mstest_dotnet2
-
+mstest project with dotnet 2.0
