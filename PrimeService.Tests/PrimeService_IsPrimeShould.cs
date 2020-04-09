@@ -34,6 +34,10 @@ namespace Prime.UnitTests.Services
             String propertyValue = TestContext.GetType().GetProperty("system.myVar").ToString(); 
             Console.WriteLine("system.myVar = " + propertyValue);
             
+            // FORCE_NUGET_EXE_INTERACTIVE;NUGET_HTTP_CACHE_PATH;NUGET_PACKAGES;NUGET_PLUGIN_PATHS
+            String nugetExe = TestContext.GetType().GetProperty("env.FORCE_NUGET_EXE_INTERACTIVE");
+            Console.WriteLine("FORCE_NUGET_EXE_INTERACTIVE=" + nugetExe);
+            
             Assert.IsNotNull(propertyValue);
         }
 
