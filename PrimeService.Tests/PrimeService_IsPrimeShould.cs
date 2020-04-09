@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Prime.Services;
 
@@ -31,11 +33,18 @@ namespace Prime.UnitTests.Services
         [TestMethod]
         public void TestConsoleOutput()
         {
-            String propertyValue = TestContext.GetType().GetProperty("system.myVar").ToString(); 
-            Console.WriteLine("system.myVar = " + propertyValue);
+            PropertyInfo propertyValue = TestContext.GetType().GetProperty("system.myVar");
+            if (propertyValue != null)
+            {
+                Console.WriteLine("system.myVar = " + propertyValue.ToString());
+            }
             
             // FORCE_NUGET_EXE_INTERACTIVE;NUGET_HTTP_CACHE_PATH;NUGET_PACKAGES;NUGET_PLUGIN_PATHS
-            String nugetExe = TestContext.GetType().GetProperty("env.FORCE_NUGET_EXE_INTERACTIVE").ToString();
+            IDictionary nugetExe = System.Environment.GetEnvironmentVariables();
+            foreach (DictionaryEntry entry in nugetExe)
+            {
+                Console.WriteLine("{0} = {1}", entry.Key, entry.Value);
+            }
             Console.WriteLine("FORCE_NUGET_EXE_INTERACTIVE=" + nugetExe);
             
             Assert.IsNotNull(propertyValue);
